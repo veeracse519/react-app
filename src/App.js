@@ -1,6 +1,6 @@
-import './components/carsList/car-fleet.css';
+//import './components/carsList/car-fleet.css';
 //import "./components/countries/countries.css"
-import './components/todo.css';
+//import './components/todo.css';
 //import "./components/form.css"
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -20,6 +20,7 @@ import { Visited } from "./components/visited.js"
 import { Disable } from "./components/diasible.js"
 import Nav from './components/nav.js'
 import { MyCity } from './components/mycity.js'
+
 
 
 //import "./App.css";

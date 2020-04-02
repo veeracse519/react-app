@@ -1,0 +1,46 @@
+.car-number,
+.footer-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn,
+.add-car {
+  border: 1px solid black;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.add-car {
+  background-color: blue;
+  color: white;
+}
+
+.Start {
+  background-color: green
+}
+
+.cancel {
+  color: red;
+}
+
+.Stop {
+  background-color: red
+}
+
+.accel {
+  border: 2px solid blue;
+  color: blue;
+}
+
+.break {
+  border: 2px solid red;
+  color: red;
+}
+
+.car-body {
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 1px 2px 10px grey
+}

@@ -32,7 +32,9 @@ class Home extends React.Component {
             <li>
               <Link to="/countryDashboardApp">Country Dashboard</Link>
             </li>
-            
+                        <li>
+              <Link to="/game">Game</Link>
+            </li>
           </ul>
         </nav>
         </div>

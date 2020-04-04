@@ -20,7 +20,8 @@ import { Visited } from "./components/visited.js"
 import { Disable } from "./components/diasible.js"
 import Nav from './components/nav.js'
 import { MyCity } from './components/mycity.js'
-
+import { Game } from "./components/EmojiGame/game.js"
+import EmojiGame from "./components/EmojiGame/EmojiGame.js"
 
 
 //import "./App.css";
@@ -76,7 +77,9 @@ class App extends React.Component {
 <Nav element="Disiable Button"/>
 <Disable/>
 </Route>
-
+<Route path="/game">
+<EmojiGame/>
+</Route>
 <Route path="/:id">
 <div className={this.state.buttonClick?"white":"black"}>
 

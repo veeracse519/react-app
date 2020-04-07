@@ -101,6 +101,7 @@ class EmojiGame extends React.Component {
           )
           this.setState({ score: 0, emojis: emojisList, status: true, topscore: 0 })
      }
+
      render() {
           return (<div >
           <div className={this.state.selectedTheme?"bg-blue-800 text-white":"bg-white"}>

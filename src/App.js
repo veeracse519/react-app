@@ -22,21 +22,27 @@ import Nav from './components/nav.js'
 import { MyCity } from './components/mycity.js'
 import { Game } from "./components/EmojiGame/game.js"
 import EmojiGame from "./components/EmojiGame/EmojiGame.js"
-
-
+import CouterPage from "./components/CounterPage"
+import themeStore from "./stores/ThemeStore"
+import { observable } from "mobx"
+import { observer } from "mobx-react"
 //import "./App.css";
 class App extends React.Component {
-  state = {
-    buttonClick: false,
-    name: false
+  getCurrentTheme = () => {
+    return themeStore.selectedTheme
   }
   changeTheme = () => {
-    this.setState({ buttonClick: !this.state.buttonClick, name: !this.state.name })
+    let c = themeStore.setCurrentTheme()
+    alert(c)
+    return c
   }
   render() {
     return (
       <Router basename={process.env.PUBLIC_URL}>
     <Switch>
+    <Route path="/counter-path">
+    <CouterPage/>
+    </Route>
   <Route path="/about">
   
 <Nav element="Back"/>
@@ -48,9 +54,9 @@ class App extends React.Component {
   <h1>hi</h1>
   </Route>
 <Route path="/countryDashboardApp">
-<div className={this.state.buttonClick?"white":"black"}>
-<Header change={this.changeTheme} name={this.state.name}/>
-<CountriesDashboardApp  class1={this.state.buttonClick}/>
+<div className={this.getCurrentTheme()?"white":"black"}>
+<Header change={this.changeTheme()} name={this.getCurrentTheme()}/>
+<CountriesDashboardApp  class1={this.getCurrentTheme()}/>
 </div>
 </Route>
 <Route path="/form-components">
@@ -81,10 +87,10 @@ class App extends React.Component {
 <EmojiGame/>
 </Route>
 <Route path="/:id">
-<div className={this.state.buttonClick?"white":"black"}>
+<div className={this.getCurrentTheme()?"white":"black"}>
 
-<Header change={this.changeTheme} name={this.state.name}/>
-<Country class1={this.state.buttonClick}/>
+<Header change={this.changeTheme} name={this.getCurrentTheme()}/>
+<Country class1={this.getCurrentTheme()}/>
 </div>
 </Route>
 <Route path="/">
@@ -96,4 +102,5 @@ class App extends React.Component {
     );
   }
 }
+//export default observer(App)
 export default App

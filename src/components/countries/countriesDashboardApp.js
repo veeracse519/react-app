@@ -102,6 +102,7 @@ class CountriesDashboardApp extends React.Component {
      }
      render() {
           const { allDupCountries } = this.state;
+          console.log("hi")
           return (<div>
           <CombinationSearch class={this.props.class1} filterCountryName={this.filterByName} filterCountryRegion={this.filterByRegion} filterCountryInAlphabeticalOrder={this.filterCountryInAlphabeticalOrder} filterCountryInReverseAlphabeticalOrder={this.filterCountryInReverseAlphabeticalOrder} region={this.state.allDupCountries}/>
      {this.state.allCountries.length>0 && <div className="countryCard">{

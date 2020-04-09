@@ -3,13 +3,13 @@ import './countries.css'
 import CountryCard from './countryCard.js'
 import { Header } from "./header.js"
 import { FaRedoAlt } from "react-icons/fa";
-import { CombinationSearch } from "./combinationsearch.js"
+import { CountriesFilterBar } from "./countriesFilterBar.js"
 class CountriesDashboardApp extends React.Component {
      state = {
           allCountries: [],
           allDupCountries: [],
           allRegions: [],
-          color: 'white',
+         // color: 'white',
           searchText: '',
           selectRegion: "ALL",
           regionList: [],
@@ -23,25 +23,30 @@ class CountriesDashboardApp extends React.Component {
 
      }
      filterByName = (searchText) => {
-
+         try{
           let items = this.state.allDupCountries.filter((item) =>
                item.name.toLowerCase().search(searchText.toLowerCase()) !== -1);
           this.setState({ searchText: searchText })
           this.combinationSearch(searchText, this.state.selectRegion, items)
+         }
+         catch(e){
+              alert("Something went wrong")
+         }
      }
      filterByRegion = (selectRegion) => {
+          try{
           let items;
-          if (selectRegion != "ALL" && this.selectText != "") {
-               items = this.state.allDupCountries.filter((item) =>
-                    item.region.search(selectRegion) !== -1);
-               this.setState({ selectRegion: selectRegion })
-          }
-          else {
-               items = this.state.allDupCountries
-               this.setState({ selectRegion: selectRegion })
-          }
+               items = this.state.allDupCountries.filter(function(item) 
+               {
+               return item.region===selectRegion
+               })
 
+          this.setState({ selectRegion: selectRegion })
           this.combinationSearch(this.state.searchText, selectRegion, items)
+          }
+          catch(e){
+               alert("Its Not a region")
+          }
 
      }
      combinationSearch = (text, region, items) => {
@@ -60,8 +65,9 @@ class CountriesDashboardApp extends React.Component {
                }
           }
           else if (text === "" && region != "ALL") {
-               let items1 = this.state.allDupCountries.filter((item) =>
-                    item.region.search(region) !== -1);
+               let items1 = this.state.allDupCountries.filter((item) =>{
+                    return item.region===region
+               })
                if (items1.length > 0) {
                     this.setState({ allCountries: items1 })
                }
@@ -72,8 +78,9 @@ class CountriesDashboardApp extends React.Component {
           else if (text != "" && region != "ALL") {
                let items = this.state.allDupCountries.filter((item) =>
                     item.name.toLowerCase().search(text.toLowerCase()) !== -1);
-               let items1 = items.filter((item) =>
-                    item.region.search(region) !== -1);
+               let items1 = items.filter((item) =>{
+                    return item.region===region
+               })
                if (items1.length > 0) {
                     this.setState({ allCountries: items1 })
                }
@@ -87,23 +94,37 @@ class CountriesDashboardApp extends React.Component {
           this.setState({ backButton: name, presentCountry: item })
      }
      filterCountryInAlphabeticalOrder = () => {
-          this.setState({
+         
+        /*  this.setState({
                allCountries: this.state.allCountries.sort(function(name1, name2) {
                     return (name1.name > name2.name)
                })
-          })
+          })*/
+
+let countries=this.state.allCountries.sort((firstName,LastName)=>(firstName.name>LastName.name)?1:-1)
+this.setState({allCountries:countries})
+
+
+
      }
      filterCountryInReverseAlphabeticalOrder = () => {
-          this.setState({
-               allCountries: this.state.allCountries.sort(function(name1, name2) {
-                    return (name2.name > name1.name)
-               })
-          })
+
+          // this.setState({
+          //      allCountries: this.state.allCountries.sort(function(name1, name2) {
+          //           return (name2.name > name1.name)
+          //      })
+          // })
+          let countries=this.state.allCountries.sort((firstName,LastName)=>(firstName.name<LastName.name)?1:-1)
+this.setState({allCountries:countries})
+
      }
      render() {
+         
           const { allDupCountries } = this.state;
+
           return (<div>
-          <CombinationSearch class={this.props.class1} filterCountryName={this.filterByName} filterCountryRegion={this.filterByRegion} filterCountryInAlphabeticalOrder={this.filterCountryInAlphabeticalOrder} filterCountryInReverseAlphabeticalOrder={this.filterCountryInReverseAlphabeticalOrder} region={this.state.allDupCountries}/>
+          <CountriesFilterBar class={this.props.class1} filterCountryName={this.filterByName} filterCountryRegion={this.filterByRegion} filterCountryInAlphabeticalOrder={this.filterCountryInAlphabeticalOrder} filterCountryInReverseAlphabeticalOrder={this.filterCountryInReverseAlphabeticalOrder} region={this.state.allDupCountries}/>
+     
      {this.state.allCountries.length>0 && <div className="countryCard">{
           this.state.allCountries.map((item,index)=>
                <CountryCard key={index} data={item} showCountry={this.showCountry} change={this.changeTheme} countries={allDupCountries} click={this.props.class1}/>

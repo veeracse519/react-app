@@ -8,8 +8,11 @@ class CombinationSearch extends React.Component {
      render() {
           return (<div className="seraching">
           <SearchCountry filterCountryName={this.props.filterCountryName} class={this.props.class}/>
+         <div className="flex">
           <AsscendingFilter filterCountryInAlphabeticalOrder={this.props.filterCountryInAlphabeticalOrder} class={this.props.class}/>
           <DesscendingFilter filterCountryInReverseAlphabeticalOrder={this.props.filterCountryInReverseAlphabeticalOrder} class={this.props.class}/>
+          </div>
+
           <SearchRegion filterCountryRegion={this.props.filterCountryRegion} class={this.props.class} region={this.props.region}/>
      </div>)
      }

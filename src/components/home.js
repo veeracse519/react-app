@@ -32,7 +32,24 @@ class Home extends React.Component {
             <li>
               <Link to="/countryDashboardApp">Country Dashboard</Link>
             </li>
-            
+            <li>
+              <Link to="/tailwind-css">Tailwind-CSS</Link>
+            </li>
+            <li>
+              <Link to="/game">Emoji Game</Link>
+            </li>
+            <li>
+              <Link to="/counter-app">Counter App</Link>
+            </li>
+            <li>
+              <Link to="/mobx-project">MobX Project</Link>
+            </li>
+            <li>
+              <Link to="/todo-app">Todo List</Link>
+            </li>
+            <li>
+              <Link to="/mobx-todo-app">Mobx Todo List</Link>
+            </li>
           </ul>
         </nav>
         </div>

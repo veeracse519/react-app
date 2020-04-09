@@ -10,7 +10,7 @@ class SearchRegion extends React.Component {
                <div className="select-region"><select className={this.props.class?"select-Region white":"select-Region black"}  onChange={this.selectedOption}>
           <option>ALL</option>
           {arry.map(item=>
-          item!=""?<option>{item}</option>:""
+          <option>{item}</option>
           )}
           </select></div>)
      }

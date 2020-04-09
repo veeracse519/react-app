@@ -5,8 +5,8 @@ class AsscendingFilter extends React.Component {
           this.props.filterCountryInAlphabeticalOrder(event.target.value)
      }
      render() {
-          return (<div  className={this.props.class?"dark back-button s":"light back-button s"} onClick={this.enter}>
-          <h4>A->Z</h4>     </div>)
+          return (<div  className={this.props.class?"dark back-button symbol":"light back-button symbol"} onClick={this.enter}>
+          <button>A->Z</button>     </div>)
      }
 }
 export { AsscendingFilter }

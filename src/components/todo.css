@@ -5,14 +5,14 @@
 
 
 }
-
+/* 
 .main-todo {
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
 
-}
+} */
 
 .main {
      width: 85%;
@@ -34,9 +34,9 @@
 .round {
      width: 30px;
      height: 30px;
-     border-radius: 30px;
-     background-color: #f2f2f2;
-     color: green;
+     border-radius: 100%;
+     background-color: #d80e0e;
+     color: rgb(5, 212, 5);
      font-family: arial
 }
 

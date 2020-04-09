@@ -20,13 +20,13 @@ class CountryCard extends React.Component {
 
      render() {
           return (
-               <div onClick={this.country}>
-          <div className={this.props.click?"dark total1":"light total"} onClick={this.showCountry}>
+               <div className=" style" onClick={this.country}>
+          <div className={this.props.click?"dark country-card-dark-mode":"light country-card-light-mode"} onClick={this.showCountry}>
           <div className="flag">
-          <img className="image" src={this.props.data.flag} width="100%" height="100%"/>
+          <img className="country-flag" src={this.props.data.flag} />
           </div>
-          <div className="data">
-          <h3>{this.props.data.name}</h3>
+          <div className="country-details">
+          <p><b>{this.props.data.name}</b></p>
           <p><b>Region:</b>{this.props.data.region}</p>
           
           <p><b>Population:</b>{this.props.data.population}</p>

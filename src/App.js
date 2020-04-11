@@ -25,11 +25,14 @@ import TailwindCss from"./components/tailwind-css-Project/tailwind-css1-project.
 //import EmojiGame from "./components/EmojiGame/EmojiGame.js"
 import EmojiGame from "./components/Games/EmojisGame"
 //import "./App.css";
+import EventApp from "./components/EventsApp/EventApp"
 import MobxApp from "./components/MobxProject"
 import themeStore from"./stores/ThemeStore"
 //import {configure} from"mobx"
+import MobxModelTodoList from "./components/TodoApp-3/TodoList"
 import CounterApp from"./components/CounterApp"
 import {MobxTodoList} from"./components/MobxTodo/todolist.js"
+import A from "./components/Example"
 //configure ({enforceActions:true})
  @observer class App extends React.Component {
   
@@ -79,6 +82,15 @@ import {MobxTodoList} from"./components/MobxTodo/todolist.js"
 <Route path="/greetings">
 <Nav element="Greetings"/>
 <Greetings/>
+</Route>
+<Route path="/mobx-store-todo-app">
+  <MobxModelTodoList/>
+</Route>
+<Route path="/mobx-event-app">
+  <EventApp/>
+</Route>
+<Route path="/provider-example-app">
+  <A/>
 </Route>
 <Route path="/favirote">
 <Nav element="Favirote Deesert"/>

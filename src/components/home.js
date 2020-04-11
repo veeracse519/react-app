@@ -50,6 +50,15 @@ class Home extends React.Component {
             <li>
               <Link to="/mobx-todo-app">Mobx Todo List</Link>
             </li>
+            <li>
+              <Link to="/mobx-store-todo-app">Mobx Store Todo List</Link>
+            </li>
+            <li>
+              <Link to="/mobx-event-app">EventApp</Link>
+            </li>
+            <li>
+              <Link to="/provider-example-app">Provider Example</Link>
+            </li>
           </ul>
         </nav>
         </div>
@@ -57,3 +66,5 @@ class Home extends React.Component {
   }
 }
 export { Home }
+///mobx-event-app
+///provider-example-app

@@ -1,5 +1,5 @@
 import React from "react"
-import {EmojiCardStyle} from "./styles.js"
+import EmojiCardStyle from "./styles.js"
 class EmojiCard extends React.Component {
      onEmojiClick = (emoji) => {
           this.props.onEmojiClick(emoji)

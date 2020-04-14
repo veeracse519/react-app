@@ -1,4 +1,4 @@
-import React from "react"
+// import React from "react"
 import styled from "@emotion/styled"
 import tw from "tailwind.macro"
 const TodoDiv=styled.div`${tw`bg-indigo-100 flex h-screen flex-col items-center border border-solid border-blue-500`}`

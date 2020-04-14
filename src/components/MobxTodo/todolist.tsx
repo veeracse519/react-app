@@ -1,29 +1,25 @@
 import React from "react"
+import { observable } from "mobx";
+import {observer} from "mobx-react"
 import { Todo } from "./todo.js"
 import { Footer } from "./footer.js"
 import {TodoDiv,TodoHeading}from "./mobxStyles.js"
-import { observable } from "mobx";
-import {observer} from "mobx-react"
-let matter;
-let c1 = 0
+let matter:string;
+let c1:number = 0
+type MobxTodoListProps={
+     status:Boolean
+     id:number
+     content:string
+}
 @observer
-class MobxTodoList extends React.Component {
-     // constructor(props) {
-     //      super(props)
-         
-          // this.state = {
-          //      //todoList: [],
-          //      todoListContent: [],
-          //      // activeTodos: [],
-          //      allTasks: []
-          // }
-    // }
-    @observable todoListContent=[]
-   // @observable activeTodos=[]
-    @observable allTasks=[]
+class MobxTodoList extends React.Component{
+   
+    @observable todoListContent:Array<MobxTodoListProps>=[]
+    @observable allTasks:Array<MobxTodoListProps>=[]
      checking = (id) => {
           let number;
-          let array = [...this.todoListContent]
+          let array:Array<MobxTodoListProps>
+           array = [...this.todoListContent]
           number = array.indexOf(id)
           array[number].status = !array[number].status
           this.check(array)
@@ -33,7 +29,7 @@ class MobxTodoList extends React.Component {
           console.log(this.allTasks)
      }
      activeTodoss = () => {
-          const v = this.allTasks.filter(item => !item.status)
+          const v:Array<MobxTodoListProps> = this.allTasks.filter(item => !item.status)
           this.active(v)
 
      }
@@ -69,7 +65,7 @@ class MobxTodoList extends React.Component {
           number1 = array1.indexOf(id)
           array.splice(number, 1)
           array1.splice(number1, 1)
-          this.todoListContent= array, 
+          this.todoListContent= array 
           this.allTasks= array1
      }
      edit = (content1, todo) => {
@@ -96,13 +92,13 @@ class MobxTodoList extends React.Component {
                     id: c1,
                     content: matter
                }
-               let array = [...this.todoListContent, emptyObj]
-               let array1 = [...this.allTasks, emptyObj]
+               let array:Array<MobxTodoListProps> = [...this.todoListContent, emptyObj]
+               let array1:Array<MobxTodoListProps>= [...this.allTasks, emptyObj]
                this.addingTodo(array,array1)
           }
      }
 addingTodo=(array,array1)=>{
-          this.todoListContent= array,
+          this.todoListContent= array
           this.allTasks= array1
 }
      render() {

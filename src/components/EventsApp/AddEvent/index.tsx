@@ -1,7 +1,7 @@
 import React from "react";
 import {observer} from "mobx-react";
 import { observable,action } from "mobx";
-import eventStore from "../../../stores/EventStore/EventStore.js"
+import eventStore from "../../../stores/EventStore/EventStore"
 @observer
 class AddEvent extends React.Component{
     @observable eventName="";
@@ -15,12 +15,12 @@ this.eventLocation="";
 }
 }
 @action.bound
-onChangeEventName(e){
+onChangeEventName(e:any){
     this.eventName=e.target.value
 
 }
 @action.bound
-onChangeEventLocation(e){
+onChangeEventLocation(e:any){
   
     this.eventLocation=e.target.value
     

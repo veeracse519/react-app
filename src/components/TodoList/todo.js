@@ -1,14 +1,13 @@
-/*global ReactDOM*/
 import React from 'react'
 //let c = 0;
 class Todo extends React.Component {
-     constructor(props) {
-          super(props)
-          //this.state = {
-          //   content: this.props.content
-          //}
+     // constructor(props) {
+     //      super(props)
+     //      //this.state = {
+     //      //   content: this.props.content
+     //      //}
 
-     }
+     // }
      add = (event) => {
 
           this.props.edit(event.target.value, this.props.h)

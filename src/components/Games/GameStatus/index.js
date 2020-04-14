@@ -1,5 +1,5 @@
 import React from "react"
-import {WinrLoss,Loss,Won,ShowScore,PlayButton} from "./styles.js"
+import {WinrLoss,Loss,Won,PlayButton} from "./styles.js"
 class WinorLoss extends React.Component {
      playAgain = () => {
           this.props.playAgain()

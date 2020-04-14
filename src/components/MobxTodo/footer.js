@@ -1,6 +1,8 @@
 import React from "react"
-import {FooterDiv} from "./mobxStyles.js"
-class Footer extends React.Component {
+import {FooterDiv} from "./mobxStyles"
+//import {MobxTodoList} from "./todolist"
+
+class Footer extends React.Component{
      constructor(props) {
           super(props);
           this.state = {

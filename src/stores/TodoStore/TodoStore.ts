@@ -1,16 +1,16 @@
-import React from "react"
-import {observer} from "mobx-react"
-import TodoModel from "../Models/TodoModel.js"
+// import React from "react"
+// import {observer} from "mobx-react"
+//import { IoLogoModelS } from "react-icons/io"
 import {observable,computed,action} from "mobx"
-import { IoLogoModelS } from "react-icons/io"
+import TodoModel from "../Models/TodoModel"
 class TodoStore{
-@observable todos=[]
+@observable todos:Array<TodoModel>=[]
 @observable selectedFilter="ALL"
 @observable count=0
 @action.bound
 onAddTodo(title1){
     let addTodo=new TodoModel(title1)
-    console.log(addTodo)
+    //console.log(addTodo)
     this.todos.push(addTodo)
 }
 @action.bound
@@ -62,4 +62,5 @@ this.todos=filteredArray
 }
 }
 const todoStore=new TodoStore()
-export default todoStore
+
+export {todoStore,TodoStore} 

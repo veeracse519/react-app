@@ -1,10 +1,13 @@
 import React from "react"
-import TodoModel from"../../../stores/Models/TodoModel.js"
-import "../Todo.css"
 import {observer} from "mobx-react"
-import todoStore from"../../../stores/TodoStore/TodoStore.js"
+import {todoStore} from"../../../stores/TodoStore/TodoStore"
+import TodoModel from"../../../stores/Models/TodoModel"
+import "../Todo.css"
+type TodoProps={
+    todo:TodoModel
+}
 @observer
-class Todo extends React.Component{
+class Todo extends React.Component<TodoProps>{
     onCompleteTodo=()=>{
         const {todo}=this.props
         todo.onCompleteTodo()

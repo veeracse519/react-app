@@ -1,5 +1,5 @@
-import React from "react"
-import {observable,action} from "mobx"
+// import React from "react"
+import {observable} from "mobx"
 class CounterApp{
     @observable count=0;
     onIncrement=()=>{

@@ -1,9 +1,13 @@
 import React from "react"
 import {observable,action} from "mobx"
 import {observer} from "mobx-react"
-import eventStore from "../../../stores/EventStore/EventStore.js";
+import EventModel from "../../../stores/Models/Event"
+import eventStore from "../../../stores/EventStore/EventStore";
+type Eventprops={
+    eachEvent:EventModel
+}
 @observer
-class Event extends React.Component{
+class Event extends React.Component<Eventprops>{
     @observable isEditEvent=false;
     @observable eventName=this.props.eachEvent.name;
     @observable eventLocation=this.props.eachEvent.location;

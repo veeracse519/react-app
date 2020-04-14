@@ -1,8 +1,8 @@
 import React from "react"
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  //BrowserRouter as Router,
+  //Switch,
+  //Route,
   Link
 }
 from "react-router-dom";
@@ -56,9 +56,7 @@ class Home extends React.Component {
             <li>
               <Link to="/mobx-event-app">EventApp</Link>
             </li>
-            <li>
-              <Link to="/provider-example-app">Provider Example</Link>
-            </li>
+            
           </ul>
         </nav>
         </div>

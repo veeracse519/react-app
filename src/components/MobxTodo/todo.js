@@ -1,17 +1,18 @@
-/*global ReactDOM*/
+
 import React from 'react'
-import {EachTodo,CheckBoxElement}from "./mobxStyles.js"
+
 import "../todo.css"
-import { MdCheckBox } from 'react-icons/md'
+import {EachTodo}from "./mobxStyles"
+//import { MdCheckBox } from 'react-icons/md'
 //let c = 0;
 class Todo extends React.Component {
-     constructor(props) {
-          super(props)
-          //this.state = {
-          //   content: this.props.content
-          //}
+     // constructor(props) {
+     //      super(props)
+     //      //this.state = {
+     //      //   content: this.props.content
+     //      //}
 
-     }
+     // }
      add = (event) => {
 
           this.props.edit(event.target.value, this.props.h)

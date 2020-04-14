@@ -1,19 +1,14 @@
-import './components/carsList/car-fleet.css';
-//import "./components/countries/countries.css"
-import './components/todo.css';
-//import "./components/form.css"
+
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-//import HomePage from "./components/HomePage";
-//import Page1 from "./components/Page1";
-import { Header } from "./components/countries/header.js"
 import {observer} from "mobx-react"
+import { Header } from "./components/countries/header.js"
 import { CarsList } from './components/carsList/inex.js'
 import { TodoList } from './components/TodoList/todolist.js'
 import { CountriesDashboardApp } from './components/countries/countriesDashboardApp.js'
 import { FormComponent } from './components/formcomponent.js'
 import Country from "./components/countries/country.js"
-import { CountryCard } from './components/countries/countryCard.js'
+//import { CountryCard } from './components/countries/countryCard.js'
 import { Home } from "./components/home.js"
 import { Greetings } from "./components/greetings.js"
 import { Favirote } from "./components/favirote.js"
@@ -22,18 +17,16 @@ import { Disable } from "./components/diasible.js"
 import Nav from './components/nav.js'
 import { MyCity } from './components/mycity.js'
 import TailwindCss from"./components/tailwind-css-Project/tailwind-css1-project.js"
-//import EmojiGame from "./components/EmojiGame/EmojiGame.js"
 import EmojiGame from "./components/Games/EmojisGame"
-//import "./App.css";
 import EventApp from "./components/EventsApp/EventApp"
 import MobxApp from "./components/MobxProject"
 import themeStore from"./stores/ThemeStore"
-//import {configure} from"mobx"
+import './components/carsList/car-fleet.css';
+import './components/todo.css';
 import MobxModelTodoList from "./components/TodoApp-3/TodoList"
 import CounterApp from"./components/CounterApp"
-import {MobxTodoList} from"./components/MobxTodo/todolist.js"
-import A from "./components/Example"
-//configure ({enforceActions:true})
+import {MobxTodoList} from"./components/MobxTodo/todolist"
+
  @observer class App extends React.Component {
   
   // state = {
@@ -89,9 +82,7 @@ import A from "./components/Example"
 <Route path="/mobx-event-app">
   <EventApp/>
 </Route>
-<Route path="/provider-example-app">
-  <A/>
-</Route>
+
 <Route path="/favirote">
 <Nav element="Favirote Deesert"/>
 <Favirote deserts={["Vanila","Gukab Jamun","Butter Scotch","Lalli","Tasneem"]}/>

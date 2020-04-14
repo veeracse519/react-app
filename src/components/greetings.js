@@ -1,5 +1,5 @@
 import React from "react"
-let name = ""
+// let name = ""
 class Greetings extends React.Component {
      state = {
           UserInput: '',
@@ -8,7 +8,7 @@ class Greetings extends React.Component {
      }
      handleSubmit = (e) => {
           e.preventDefault()
-          if (this.state.UserInput != "") {
+          if (this.state.UserInput !=="") {
                this.setState({
                     buttonClick: true,
                     displayName: this.state.UserInput

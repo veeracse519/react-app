@@ -27,7 +27,7 @@ class Todo extends React.Component {
                <EachTodo>
               <div className="bg-white h-10 flex items-center">
               
-                <input className="m-3 w-4 h-4" type="checkbox"  checked={this.props.h.status} onClick={this.props.check.bind(this,this.props.id)} />
+                <input className="m-3 w-4 h-4" type="checkbox"  checked={this.props.status1} onClick={this.props.check.bind(this,this.props.id)} />
                 </div>
                <input className="todo-status w-11/12" defaultValue={this.props.content} disabled={this.props.status1} onChange={this.add}/>
                <button className="w-12 bg-white h-10 text-red-600" onClick={this.props.delete1.bind(this,this.props.id)}>&#x2717;</button>

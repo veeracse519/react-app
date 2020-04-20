@@ -7,6 +7,7 @@ class TodoStore{
 @observable todos:Array<TodoModel>=[]
 @observable selectedFilter="ALL"
 @observable count=0
+
 @action.bound
 onAddTodo(title1){
     let addTodo=new TodoModel(title1)

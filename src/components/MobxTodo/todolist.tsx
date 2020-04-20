@@ -4,6 +4,8 @@ import {observer} from "mobx-react"
 import { Todo } from "./todo.js"
 import { Footer } from "./footer.js"
 import {TodoDiv,TodoHeading}from "./mobxStyles.js"
+import Loading from"./loading.svg"
+import load from "./Load.svg"
 let matter:string;
 let c1:number = 0
 type MobxTodoListProps={
@@ -14,14 +16,34 @@ type MobxTodoListProps={
 @observer
 class MobxTodoList extends React.Component{
    
-    @observable todoListContent:Array<MobxTodoListProps>=[]
-    @observable allTasks:Array<MobxTodoListProps>=[]
+    @observable todoListContent:Array<any>=[]
+    @observable allTasks:Array<any>=[]
+    @observable isLoading:boolean=true
+    @observable isAnyError:boolean=false
+    componentDidMount(){
+    this.fetching()
+}
+fetching=()=>{
+     this.isAnyError=false
+     this.isLoading=true
+     fetch("https://jsonplaceholder.typicode.com/todos")
+     .then(response=>{return response.json();})
+     .then(todo=>{
+        if(todo.length!==undefined) {this.todoListContent=todo;this.allTasks=todo;this.isLoading=false;}
+        else{         
+              setTimeout(()=>{this.isAnyError=true},2000)
+     }
+     })
+     .catch(err=>{
+          setTimeout(()=>{this.isAnyError=true},2000)
+     })
+}
      checking = (id) => {
           let number;
-          let array:Array<MobxTodoListProps>
+          let array:Array<any>
            array = [...this.todoListContent]
           number = array.indexOf(id)
-          array[number].status = !array[number].status
+          array[number].completed = !array[number].completed
           this.check(array)
      }
      check=(array)=>{
@@ -29,9 +51,8 @@ class MobxTodoList extends React.Component{
           console.log(this.allTasks)
      }
      activeTodoss = () => {
-          const v:Array<MobxTodoListProps> = this.allTasks.filter(item => !item.status)
+          const v:Array<MobxTodoListProps> = this.allTasks.filter(item => !item.completed)
           this.active(v)
-
      }
      active=(v)=>{
           this.todoListContent= v
@@ -39,11 +60,9 @@ class MobxTodoList extends React.Component{
      alll = () => {
           this.todoListContent=this.allTasks
      }
-    
      completed = () => {
-          const v = this.allTasks.filter(item => item.status)
+          const v = this.allTasks.filter(item => item.completed)
           this.complete(v)
-
      }
      complete=(v)=>{
           this.todoListContent= v
@@ -51,8 +70,8 @@ class MobxTodoList extends React.Component{
      clearCompleted = () => {
           const veera = this.allTasks
           const v = this.todoListContent
-          const v1 = v.filter((item) => !item.status)
-          const v2 = veera.filter(item => !item.status)
+          const v1 = v.filter((item) => !item.completed)
+          const v2 = veera.filter(item => !item.completed)
           this.allTasks= v2
           this.todoListContent= v1
      }
@@ -88,9 +107,9 @@ class MobxTodoList extends React.Component{
                matter = event.target.value;
                event.target.value = ""
                let emptyObj = {
-                    status: false,
+                    completed: false,
                     id: c1,
-                    content: matter
+                    title: matter
                }
                let array:Array<MobxTodoListProps> = [...this.todoListContent, emptyObj]
                let array1:Array<MobxTodoListProps>= [...this.allTasks, emptyObj]
@@ -105,25 +124,27 @@ addingTodo=(array,array1)=>{
           return (
 
                <TodoDiv>
-               <TodoHeading>todos</TodoHeading>
-               <input className="w-11/12 h-10 text-center shadow-2xl" type="text" id="txt" onKeyDown={this.press} placeholder="What Needs to be Done..." />
-                {[...this.todoListContent].map((item,index)=>
-                     <Todo key={item.id} h={item} content={item.content} check={this.checking} id={item} delete1={this.deleteTodo} status1={item.status} edit={this.edit}/>
-               )}
-     
-               <Footer allTodos={this.allTasks} active={this.activeTodoss} alTodos={this.alll} completed={this.completed} clear={this.clearCompleted}/>
-          
-             
-       
-               
-
-               
-               </TodoDiv>
+                    {
+                    this.isAnyError?
+                    <div className="flex flex-col items-center justify-center min-h-screen "><p className="text-xl text-center">Something went Wrong</p><button className="p-2 bg-blue-500 text-white rounded-sm" onClick={this.fetching}>Retry</button></div>
+                    :this.isLoading?
+                    <div className="flex flex-col items-center justify-center min-h-screen"><p className="text-xl text-center ">Loading<img src={load}/></p></div>
+                    :this.allTasks.length===0?<div className="w-10/12 flex flex-col items-center min-h-screen"><TodoHeading>todos</TodoHeading> <input className="border border-solid border-black w-full h-10 text-center shadow-2xl" type="text" id="txt" onKeyDown={this.press} placeholder="What Needs to be Done..." /><p className="text-xl">No ToDos Yet</p></div>
+                    :<div className="w-10/12"><TodoHeading>todos</TodoHeading>
+                          <input className="border border-solid border-black w-full h-10 text-center shadow-2xl" type="text" id="txt" onKeyDown={this.press} placeholder="What Needs to be Done..." />
+                          {[...this.todoListContent].map((item,index)=>(
+                          <Todo key={index} h={item} content={item.title} check={this.checking} id={item} delete1={this.deleteTodo} status1={item.completed} edit={this.edit}/>
+                          ))}
+                         <Footer allTodos={this.allTasks} active={this.activeTodoss} alTodos={this.alll} completed={this.completed} clear={this.clearCompleted}/>
+                    </div>
+                    }
+          </TodoDiv>
 
           )
      }
 }
 export { MobxTodoList }
+//
         /*
                box-shadow: 1px 2px 10px lightgrey;
      width: 85%;

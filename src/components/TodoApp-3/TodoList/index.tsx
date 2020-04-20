@@ -11,6 +11,12 @@ type StoreProps={
 }
 @observer
 class MobxTodoList extends React.Component{
+  componentDidMount(){
+    alert(1)
+    // const data=fetch("https://todo-list-2.getsandbox.com/todos")
+    // .then(response=>response.json())
+    // .then(todo=>todoStore.todos=todo)
+}
     handleUserInput=(e)=>{
       if(e.keyCode===13 && e.target.value!==""){
       todoStore.onAddTodo(e.target.value)   
@@ -27,6 +33,7 @@ class MobxTodoList extends React.Component{
       // reaction.dispose()
     })
     render(){
+      console.log(todoStore.todos)
         const todos=todoStore.getFilteredTodos
  
         return(<div className="border border-solid border-black w-11/12">      

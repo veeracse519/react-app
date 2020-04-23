@@ -7,10 +7,10 @@ class TodoModel{
     @observable title=""
     @observable isCompleted=false
     constructor(data){
- 
-    this.id=Math.random()//Date.now()
-    this.title=data
-    this.isCompleted=false
+        
+    this.id=data.id?data.id:Math.random().toString()//Date.now()
+    this.title=data.title?data.title:data
+    this.isCompleted=data.completed===undefined?false:data.completed
     }
     @action.bound
     onCompleteTodo(){

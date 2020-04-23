@@ -56,7 +56,9 @@ class Home extends React.Component {
             <li>
               <Link to="/mobx-event-app">EventApp</Link>
             </li>
-            
+            <li>
+              <Link to="/user-page">UserPage</Link>
+            </li>
           </ul>
         </nav>
         </div>

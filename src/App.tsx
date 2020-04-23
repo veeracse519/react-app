@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Provider} from"mobx-react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {observer} from "mobx-react"
 import { Header } from "./components/countries/header.js"
@@ -22,11 +23,13 @@ import EventApp from "./components/EventsApp/EventApp"
 import MobxApp from "./components/MobxProject"
 import themeStore from"./stores/ThemeStore"
 import './components/carsList/car-fleet.css';
+
 import './components/todo.css';
 import MobxModelTodoList from "./components/TodoApp-3/TodoList"
 import CounterApp from"./components/CounterApp"
 import {MobxTodoList} from"./components/MobxTodo/todolist"
-
+import UsersPage from "./components/UsersPage"
+import stores from "./stores"
  @observer class App extends React.Component {
   
   // state = {
@@ -44,6 +47,7 @@ import {MobxTodoList} from"./components/MobxTodo/todolist"
 
   render() {
     return (
+      <Provider {...stores} >
       <Router basename={process.env.PUBLIC_URL}>
     <Switch>
   <Route path="/about">
@@ -62,6 +66,9 @@ import {MobxTodoList} from"./components/MobxTodo/todolist"
   <Route path="/mobx-project">
 <MobxApp/>
   </Route>
+  <Route path="/user-page" component={UsersPage}>
+<UsersPage/>
+  </Route>
 <Route path="/countryDashboardApp">
 <div className={this.getCurrentTheme()?"white":"black"}>
 <Header change={this.changeTheme} name={this.getCurrentTheme()}/>
@@ -76,7 +83,7 @@ import {MobxTodoList} from"./components/MobxTodo/todolist"
 <Nav element="Greetings"/>
 <Greetings/>
 </Route>
-<Route path="/mobx-store-todo-app">
+<Route path="/mobx-store-todo-app" component={MobxModelTodoList}>
   <MobxModelTodoList/>
 </Route>
 <Route path="/mobx-event-app">
@@ -126,6 +133,7 @@ import {MobxTodoList} from"./components/MobxTodo/todolist"
 </Switch>
 
 </Router>
+</Provider>
     );
   }
 }

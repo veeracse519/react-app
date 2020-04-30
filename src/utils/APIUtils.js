@@ -8,6 +8,7 @@ export const networkCallWithApisauce = async (
   requestObject,
   type = apiMethods.post
 ) => {
+  console.log("1234")
   let response = null
   try {
     response = await getData(api, url, requestObject, type)

@@ -1,20 +1,50 @@
 import React from "react"
+//import authStore from "../stores/authStore/index.js"
 import {
   //BrowserRouter as Router,
   //Switch,
   //Route,
-  Link
+  Link,
+  Redirect,
+  withRouter
 }
 from "react-router-dom";
-
+import { observable } from "mobx";
+import { observer } from "mobx-react";
+import { clearUserSession, getAccessToken } from "../utils/StorageUtils.js";
+@observer
 class Home extends React.Component {
-  render() {
-    return (
 
+// alert(TailwindCss.token)
+@observable tocken ;
+constructor(){
+  super()
+  this.tocken=getAccessToken()
+}
+  gotoGridScreenIfLogIn=()=>{
+    return(
+      <Redirect
+      to={{
+        pathname:'/'
+       }}
+      />)
+  }
+  signOut=()=>{
+    clearUserSession()
+    this.props.history.replace('/')
+  }
+  render() {
+    //console.log(this.token)
+    if(!getAccessToken()){
+      return this.gotoGridScreenIfLogIn()
+    }
+    return (
       <div>
         <nav>
           <ul>
-          
+          <li>
+            <button onClick={this.signOut}>SignOut</button>
+          </li>
             <li>
               <Link to="/">Home</Link>
             
@@ -65,6 +95,6 @@ class Home extends React.Component {
     )
   }
 }
-export { Home }
+export default withRouter(Home)
 ///mobx-event-app
 ///provider-example-app

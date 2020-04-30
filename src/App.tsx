@@ -10,7 +10,7 @@ import { CountriesDashboardApp } from './components/countries/countriesDashboard
 import { FormComponent } from './components/formcomponent.js'
 import Country from "./components/countries/country.js"
 //import { CountryCard } from './components/countries/countryCard.js'
-import { Home } from "./components/home.js"
+import Home from "./components/home.js"
 import { Greetings } from "./components/greetings.js"
 import { Favirote } from "./components/favirote.js"
 import { Visited } from "./components/visited.js"
@@ -23,13 +23,19 @@ import EventApp from "./components/EventsApp/EventApp"
 import MobxApp from "./components/MobxProject"
 import themeStore from"./stores/ThemeStore"
 import './components/carsList/car-fleet.css';
-
 import './components/todo.css';
 import MobxModelTodoList from "./components/TodoApp-3/TodoList"
 import CounterApp from"./components/CounterApp"
 import {MobxTodoList} from"./components/MobxTodo/todolist"
 import UsersPage from "./components/UsersPage"
 import stores from "./stores"
+import EcommeraceAuthentication from "./Authentication/routes/SignRoute/index.js";
+import EcommerceCart from "./e-Commerace/routes/ProductsPageRoute/index.js";
+import ProductsPage from "./e-Commerace/components/ProductsPage/index.js";
+import SignPage from "./Authentication/components/SignInPage/index.js";
+
+import MapContainer from"./components/googleMap"
+import ProductPage from "./e-Commerace/components/ProductDetails/productDetails.js";
  @observer class App extends React.Component {
   
   // state = {
@@ -60,6 +66,15 @@ import stores from "./stores"
 <Nav element="Back"/>
   <h1>hi</h1>
   </Route>
+
+
+  <Route path="/map">
+<Nav element="Back"/>
+  <MapContainer/>
+  </Route>
+
+
+
   <Route path="/counter-app">
 <CounterApp/>
   </Route>
@@ -68,6 +83,9 @@ import stores from "./stores"
   </Route>
   <Route path="/user-page" component={UsersPage}>
 <UsersPage/>
+  </Route>
+  <Route path="/products-page">
+<ProductsPage/>
   </Route>
 <Route path="/countryDashboardApp">
 <div className={this.getCurrentTheme()?"white":"black"}>
@@ -102,13 +120,16 @@ import stores from "./stores"
 <Nav element="State"/>
 <MyCity states={["Select State","Andhra Pradesh","Telangana","Karnataka","MP"]}/>
 </Route>
+<Route path="/product-details">
+<ProductPage/>
+</Route>
+
 <Route path="/diasible">
 <Nav element="Disiable Button"/>
 <Disable/>
 </Route>
-<Route path="/tailwind-css">
-<Nav element="Back"/>
-<TailwindCss />
+<Route path="/projects-page">
+<Home />
 </Route>
 <Route path="/game">
 <EmojiGame/>
@@ -128,7 +149,7 @@ import stores from "./stores"
 </Route>
 
 <Route path="/">
-<Home/>
+<SignPage/>
 </Route>
 </Switch>
 

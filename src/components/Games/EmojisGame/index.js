@@ -1,13 +1,8 @@
 import React from "react"
-/*import EmojiCard from "./EmojiCard.js"
-import WinorLoss from "./WinorLose.js"
-import NavBar from "./Navbar.js"
-import HowToPlay from "./HowToPlay.js"*/
 import EmojiCard from "../EmojiCards"
 import WinorLoss from "../GameStatus"
 import NavBar from "../HeaderFiles"
 import HowToPlay from "../Instructions"
-//import {HeaderComponent} from "./styles.js"
 class EmojiGame extends React.Component {
      state = {
           emojis: [{ id: 1, isClicked: false, name: "Exploding Head", image: "https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-1.png" },
@@ -46,9 +41,6 @@ class EmojiGame extends React.Component {
                }
           }
           /*let emojisList =*/ this.shuffleEmojis(this.state.emojis, index)
-
-          //this.setState({ emojis: emojisList })
-
      }
      shuffleEmojis = (emojis, index) => {
           let i, t, j;
@@ -65,13 +57,9 @@ class EmojiGame extends React.Component {
      incrementScore = () => {
           let score=this.state.score
           score += 1
-         // this.state.status=true
           this.setState({ status: true,score:score })
      }
      setTopScore = () => {
-          // if (this.state.score > this.state.topscore) {
-          //      this.state.topscore = this.state.score
-          // }
           this.setState({ status: false, gameState: "Lost" })
      }
      onChangeTheme = () => {
@@ -89,14 +77,6 @@ class EmojiGame extends React.Component {
           )
           this.setState({ score: 0, emojis: emojisList, status: true })
      }
-     /*resetGame = () => {
-         
-          let emojisList = this.state.emojis
-          emojisList.map(item =>
-               item.isClicked = false
-          )
-          this.setState({ score: 0, emojis: emojisList, status: true})
-     }*/
      render() {
           const status=this.state.selectedTheme
           return (<div >

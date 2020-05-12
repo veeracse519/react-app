@@ -1,7 +1,7 @@
 import { observable, action } from "mobx"
 import { API_INITIAL } from "@ib/api-constants";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
-import { clearUserSession, setAccessToken } from "../../utils/StorageUtils";
+import { clearUserSession, setAccessToken } from "../../../utils/StorageUtils";
 //import { clearUserSession, setAccessToken } from "../../../utils/StorageUtils";
 import{withRouter,Redirect} from "react-router-dom"
 import { productStore } from "../../../e-Commerace/stores";
@@ -30,16 +30,15 @@ this.getUserSignInAPIError=error
 }
 @action.bound
 setGetUserSignInAPIStatus(apiStatus){
+    console.log(apiStatus)
 this.getUserSignInAPIStatus=apiStatus
 }
 @action.bound
 userSignOut(){
-   // alert("veera")
-    // const{history}=this.props
+
      clearUserSession()
      productStore.clearStore()
-    // this.clearStore()
-    // history.replace("/")
+  
 }
     
 @action.bound
@@ -48,6 +47,7 @@ clearStore(){
 }
 @action.bound
 userSignIn(){
+    console.log('123456')
 const userSignPromise=this.authAPIService.getSignInAPI()
 //console.log(userSignPromise)
 return bindPromiseWithOnSuccess(userSignPromise)

@@ -3,6 +3,8 @@ import { observer } from "mobx-react"
 import CheckoutButton from "../CheckoutButton/checkButton"
 import { cartStore } from "../../../e-Commerace/stores"
 import {TotalPriceCheckout,PriceDetails,Title,TotalCost} from "./styledComponents"
+import CheckButtonRoute from "../../routes/CheckButtonRoute"
+
 @observer
 class SubTotal extends React.Component{
 render(){
@@ -14,7 +16,7 @@ return(
 <TotalCost>₹ 
 {cartStore.cartProductList.length?(cartStore.totalCartAmount).toFixed(2):"0"}</TotalCost>
 </PriceDetails>
-<CheckoutButton  cartStore={cartStore}/>
+<CheckButtonRoute  cartStore={cartStore}/>
         </TotalPriceCheckout>)
 }
 }

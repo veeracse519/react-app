@@ -1,7 +1,7 @@
 import styled from"@emotion/styled"
 import tw from "tailwind.macro"
 const ShowCartDivision=styled.div`${tw`flex  items-start h-5 cursor-pointer`}`
-const CartButton=styled.div`${tw` p-4 bg-gray-800 flex flex-col`}width:400px;height:461px`
+const CartButton=styled.div`${tw` p-4 bg-gray-800 flex flex-col`}width:400px;height:482px`
 const CartItemsAlignment=styled.div`${tw`flex items-center justify-center`}`
 const CartImageSize=styled.div`${tw`h-10 mr-4`}`
 const Productscount=styled.p`${tw`text-center text-sm text-yellow-600 relative`}margin-top:-32px;margin-left:16px`

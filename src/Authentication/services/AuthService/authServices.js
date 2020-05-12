@@ -14,7 +14,7 @@ this.api=create({
 }
 getSignInAPI=()=>{
     //alert("hello")
-   // console.log(baseUrl)
+    console.log(baseUrl)
 return networkCallWithApisauce(
 this.api,
 'v1/signin/',

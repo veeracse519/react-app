@@ -7,30 +7,10 @@ import Tostify from "../Toastify";
 import { cartStore } from "../../stores";
 import { getAccessToken } from "../../../utils/StorageUtils";
 class ProductPage extends React.Component{
-    onClickAddToCart=()=>{
-        toast.warn(<Tostify/>, {
-          position: toast.POSITION.BOTTOM_CENTER
-        });
-        const{state}=this.props.location
-        const ProductDetails=state.eachProduct
-        cartStore.onClickAddToCart(ProductDetails)
-      }
     render(){
-        if(!getAccessToken()){
-            return <Redirect
-            to={{pathname:'/'}}
-            />
-        }
-        const{history}=this.props
-        const{state}=this.props.location
-        const ProductDetails=state.eachProduct
-        let Rate=String(ProductDetails.price)
-    let price=Rate.split(".")
-    
+    const{onClickAddToCart,ProductDetails,Rate,price}=this.props
         return(
-            <div className="flex">
-               
-               
+            <div className="flex">             
                 <div className="right-0 top-0 absolute">
                 <ProductCart/>
                 </div>
@@ -56,7 +36,7 @@ class ProductPage extends React.Component{
                    {ProductDetails.installments===0?"":"or "+ProductDetails.installments + " X " + ProductDetails.currencyFormat +" "+ (ProductDetails.price/ProductDetails.installments).toFixed(2)}</InstallmentsFormate>
                    </p>
                    
-                   <AddToCartButton onClick={this.onClickAddToCart}>Add to cart</AddToCartButton>
+                   <AddToCartButton onClick={onClickAddToCart}>Add to cart</AddToCartButton>
 
                <ToastContainer/>
                 </div>
@@ -65,4 +45,4 @@ class ProductPage extends React.Component{
         )
 }
 }
-export default withRouter(ProductPage)
+export default ProductPage

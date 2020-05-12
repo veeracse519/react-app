@@ -9,31 +9,14 @@ import Tostify from "../Toastify";
 import {withRouter} from "react-router-dom"
 import { observable } from "mobx";
 @observer
-class Product extends React.Component{
-  @observable isAdded=false
-  @observable isClicked=false
-  onClickAddToCart=()=>{
-    toast.warn(<Tostify/>, {
-      position: toast.POSITION.BOTTOM_CENTER
-    });
-    const{eachProduct}=this.props
-    cartStore.onClickAddToCart(eachProduct)
-  }
-  productDetails=()=>{
- 
-    const{history,eachProduct,store}=this.props
-    history.push('/product-details',{eachProduct})
-    store.clearStore()
-   
-  }
-  
+class Product extends React.Component{  
 render(){
-    const{eachProduct}=this.props
+    const{eachProduct,onClickAddToCart,isAdded,isClicked,productDetails}=this.props
     let Rate=String(eachProduct.price)
     let price=Rate.split(".")
    
     return( <ProductDetails  >
-      <div className="cursor-pointer" onClick={this.productDetails}>   
+      <div className="cursor-pointer" onClick={productDetails}>   
          <p className={eachProduct.isFreeShipping?"absolute top-10 right-0 bg-black p-1 text-xs text-white":""}>{eachProduct.isFreeShipping?"FreeShipping":""}</p>
     <img  src={eachProduct.image} alt={eachProduct.printStyle} className="w-4/5  object-contain mb-2"/>
     <ProductTitle>{eachProduct.title}</ProductTitle>
@@ -47,11 +30,11 @@ render(){
     </p>
     </div>
 
-     <AddToCartButton onClick={this.onClickAddToCart}>Add to cart</AddToCartButton>
+     <AddToCartButton onClick={onClickAddToCart}>Add to cart</AddToCartButton>
      <ToastContainer>
        
      </ToastContainer>
     </ProductDetails>)
 }
 }
-export default withRouter(Product)
+export default Product

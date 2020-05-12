@@ -24,39 +24,47 @@ import MobxApp from "./components/MobxProject"
 import themeStore from"./stores/ThemeStore"
 import './components/carsList/car-fleet.css';
 import './components/todo.css';
+
 import MobxModelTodoList from "./components/TodoApp-3/TodoList"
 import CounterApp from"./components/CounterApp"
 import {MobxTodoList} from"./components/MobxTodo/todolist"
 import UsersPage from "./components/UsersPage"
-import stores from "./stores"
-import EcommeraceAuthentication from "./Authentication/routes/SignRoute/index.js";
-import EcommerceCart from "./e-Commerace/routes/ProductsPageRoute/index.js";
+//import stores from "./stores"
+import {EcommeraceAuthentication} from "./Authentication/routes/SignRoute/index.js";
+//import EcommerceCart from "./e-Commerace/routes/ProductsPageRoute/index.js";
 import ProductsPage from "./e-Commerace/components/ProductsPage/index.js";
 import SignPage from "./Authentication/components/SignInPage/index.js";
 
 import MapContainer from"./components/googleMap"
 import ProductPage from "./e-Commerace/components/ProductDetails/productDetails.js";
+import { ProtectedRoute } from "./comman/ProtectedRoute/index.js";
+import SignInRoute from "./Authentication/routes/SignRoute/SignInRoute.js";
+import { ProductsRoute } from "./e-Commerace/routes/ProductsPageRoute/index.js";
+import stores from "./stores/index.js";
+
  @observer class App extends React.Component {
-  
-  // state = {
-  //   buttonClick: false,
-  //   name: false
-  // }
   getCurrentTheme=()=>{
     return themeStore.buttonClick
   }
   changeTheme = () => {
-    alert("app")
     themeStore.setCurrentTheme()
-    //this.setState({ buttonClick: !this.state.buttonClick, name: !this.state.name })
   }
-
   render() {
     return (
       <Provider {...stores} >
-      <Router basename={process.env.PUBLIC_URL}>
+     <Router basename={process.env.PUBLIC_URL} >
     <Switch>
-  <Route path="/about">
+      {EcommeraceAuthentication}
+      {ProductsRoute}
+    {/* <Route path="/sign-in">
+      <SignInRoute/>
+    </Route> */}
+    <ProtectedRoute/>
+    {/* <EcommeraceAuthentication/> */}
+    
+  
+ 
+  {/*<Route path="/about">
   
 <Nav element="Back"/>
   <h1>About</h1>
@@ -83,11 +91,12 @@ import ProductPage from "./e-Commerace/components/ProductDetails/productDetails.
   </Route>
   <Route path="/user-page" component={UsersPage}>
 <UsersPage/>
-  </Route>
+  </Route> 
   <Route path="/products-page">
 <ProductsPage/>
-  </Route>
-<Route path="/countryDashboardApp">
+  </Route>*/}
+ 
+{/* <Route path="/countryDashboardApp">
 <div className={this.getCurrentTheme()?"white":"black"}>
 <Header change={this.changeTheme} name={this.getCurrentTheme()}/>
 <CountriesDashboardApp  class1={this.getCurrentTheme()}/>
@@ -142,17 +151,11 @@ import ProductPage from "./e-Commerace/components/ProductDetails/productDetails.
 </Route>
 <Route path="/:id">
 <div className={this.getCurrentTheme()?"white":"black"}>
-
 <Header change={this.changeTheme} name={this.getCurrentTheme()}/>
 <Country class1={this.getCurrentTheme()}/>
 </div>
-</Route>
-
-<Route path="/">
-<SignPage/>
-</Route>
+</Route> */}
 </Switch>
-
 </Router>
 </Provider>
     );

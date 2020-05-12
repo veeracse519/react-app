@@ -4,17 +4,12 @@ import {CartItemBody,RemoveButton,CartItemDetails,ProductTitle,ProductStyle,Prod
 
 @observer
 class CartItem extends React.Component{
-onRemoveCartItem=()=>{
-const{cartStore}=this.props
-const{eachProduct}=this.props
-cartStore.onRemoveCartItem(eachProduct.cartItemId)
-    }
 render(){
-    const{eachProduct}=this.props
+    const{eachProduct,onRemoveCartItem}=this.props
 return(<div>
     <hr></hr>
     <CartItemBody>
-    <RemoveButton   onClick={this.onRemoveCartItem}>x</RemoveButton>
+    <RemoveButton   onClick={onRemoveCartItem}>x</RemoveButton>
     <img src={eachProduct.product.image} className="w-12 object-contain"/>
     <CartItemDetails>
 <ProductTitle>{eachProduct.product.title}</ProductTitle>

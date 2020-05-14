@@ -229,31 +229,6 @@ get sortedAndFilteredProducts(){
        
     }))
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     let isAvailble = false
     return (this.productList.filter((eachProduct)=>{
         eachProduct.availableSizes.filter(eachSize=>{

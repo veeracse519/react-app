@@ -17,6 +17,7 @@ class SignInRoute extends React.Component{
 @observable tocken;
 @observable isClicked
 authStore
+signInRef=React.createRef()
 constructor(props){
     super(props)
     this.authStore=this.props.authStore
@@ -25,6 +26,10 @@ constructor(props){
     this.password=""
     this.errorMessage=""
     this.isClicked=false
+}
+componentDidMount(){
+    console.log(this.signInRef)
+    this.signInRef.current.usernameRef.current.focus();
 }
 onChangeUsername=(e)=>{
 
@@ -41,7 +46,7 @@ onClickSignIn=async ()=>{
 this.isClicked=true
 if(this.username!=="" && this.password!==""){
 await this.authStore.userSignIn()
-console.log("veera")
+
 if(getAccessToken()===undefined){
     this.errorMessage="NetworkError"
    this.isClicked=false
@@ -56,10 +61,12 @@ else{
     this.isClicked=false
     if(this.username==""){
     this.errorMessage="please enter username"
+    this.signInRef.current.usernameRef.current.focus()
     
     }
     else {
         this.errorMessage="please enter password"
+       this.signInRef.current.passwordRef.current.focus()
     }
 }
 }
@@ -73,6 +80,7 @@ render(){
      onClickSignIn={this.onClickSignIn}
      isClicked={this.isClicked}
      errorMessage={this.errorMessage}
+     ref={this.signInRef}
     />
     )
 }

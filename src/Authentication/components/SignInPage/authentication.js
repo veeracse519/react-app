@@ -16,8 +16,10 @@ import { getAccessToken } from "../../../utils/StorageUtils.js";
 //import { getAccessToken } from "../../../utils/StorageUtils"
 @observer
 class SignPage extends React.Component{
+    usernameRef=React.createRef()
+    passwordRef=React.createRef()
     render(){ 
-        const{username,password,onChangeUsername,onChangePassword,onClickSignIn,isClicked,errorMessage}=this.props
+        const{username,password,usernameRef,passwordRef,onChangeUsername,onChangePassword,onClickSignIn,isClicked,errorMessage}=this.props
         if(getAccessToken()){
             return <Redirect
             to={{pathname:PRODUCTS_PATH}}
@@ -25,14 +27,15 @@ class SignPage extends React.Component{
         }
     return(
         
+        
         <SignInDiv>
             <CookieConsent>
     This website uses cookies to enhance the user experience.
 </CookieConsent>
             <Form>
                 <PageHeading>Sign in</PageHeading>
-                <UserNameBox type="text" placeholder="UserName" defaultValue={username} onChange={onChangeUsername}></UserNameBox>
-                <PasswordBox type="password" placeholder="Password" defaultValue={password} onChange={onChangePassword}></PasswordBox>
+                <UserNameBox ref={this.usernameRef} type="text" placeholder="UserName" defaultValue={username} onChange={onChangeUsername}></UserNameBox>
+                <PasswordBox ref={this.passwordRef} type="password" placeholder="Password" defaultValue={password} onChange={onChangePassword}></PasswordBox>
                 <SignInButton type="button" text="Sign in" onClick={onClickSignIn}>
                     {isClicked?<img src={animatedLoading}/>:"Sign in"}</SignInButton>
                 <ErrorMessege>{errorMessage}</ErrorMessege>

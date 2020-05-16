@@ -5,8 +5,8 @@ class DesscendingFilter extends React.Component {
           this.props.filterCountryInReverseAlphabeticalOrder(event.target.value)
      }
      render() {
-          return (<div className={this.props.class?"dark back-button s":"light back-button s"} onClick={this.enter}>
-          <h4>Z->A</h4>
+          return (<div className={this.props.class?"dark back-button symbol":"light back-button symbol"} onClick={this.enter}>
+          <button>Z->A</button>
      </div>)
      }
 }

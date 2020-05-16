@@ -23,7 +23,11 @@ import HowToPlay from "./HowToPlay.js"
 class EmojiGame extends React.Component {
      state = {
           emojis: [{ id: 1, isClicked: false, name: "Exploding Head", image: "https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-1.png" },
+<<<<<<< HEAD
                { id: 2, isClicked: false, name: "Grinning Face with Sweet", image: "https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-2.png" },
+=======
+               { id: 2, isClicked: false, name: "Grinning Face with Sweat", image: "https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-2.png" },
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
                { id: 3, isClicked: false, name: "Smilimg Face with Heart-Eyes", image: "https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-3.png" },
                { id: 4, isClicked: false, name: "Smirking Face", image: "https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-4.png" },
                { id: 4, isClicked: false, name: "Thinking Face", image: "https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-5.png" },
@@ -101,7 +105,10 @@ class EmojiGame extends React.Component {
           )
           this.setState({ score: 0, emojis: emojisList, status: true, topscore: 0 })
      }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
      render() {
           return (<div >
           <div className={this.state.selectedTheme?"bg-blue-800 text-white":"bg-white"}>

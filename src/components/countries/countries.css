@@ -1,29 +1,40 @@
-.total {
+.country-card-light-mode {
     height: 400px;
     width: 200px;
     box-shadow: 1px 1px 5px lightgrey;
-    margin: 25px;
+    margin: 20px; 
     border-radius: 5px 5px 5px 5px
 }
 
-.total1 {
+.country-card-dark-mode {
     height: 400px;
     width: 200px;
+<<<<<<< HEAD
 
     margin: 25px;
+=======
+     margin: 20px; 
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
     border-radius: 5px 5px 5px 5px
 }
 
 .countryCard {
+
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .flag {
-    height: 40%;
+    height: 50%;
+    object-fit: cover;
 }
 
+<<<<<<< HEAD
 .data {
+=======
+.country-details {
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
     display: flex;
     flex-direction: column;
     /*margin: 15px;*/
@@ -32,6 +43,7 @@
 
 .btn {
     border: none;
+    border-radius: 5px;
 }
 
 .header {
@@ -54,9 +66,15 @@
 
 }
 
-.image {
+.country-flag {
     object-fit: cover;
+<<<<<<< HEAD
     border-radius: 5px 5px 0px 0px
+=======
+    height:195px;
+    border-radius: 5px 5px 0px 0px;
+    text-align:justify
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
 }
 
 p {
@@ -70,10 +88,11 @@ p {
     justify-content: space-between;
 }
 
-.enter-text {
+.text-box{
     border: none;
     font-size: 15px;
     width: 100%;
+    height:100%
 }
 
 .search-country {
@@ -145,10 +164,15 @@ p {
     box-shadow: 1px 2px 5px lightgrey;
     display: flex;
     align-items: center;
+    border-radius: 5px;
 }
 
 .arrow {
+<<<<<<< HEAD
     margin-top: 30px;
+=======
+    font-size: 30px;
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
 
 }
 
@@ -156,7 +180,7 @@ p {
     margin-top: 25px;
 }
 
-.mode {
+.header-mode {
     display: flex;
     align-items: center;
 }
@@ -168,21 +192,33 @@ p {
 
 .C-data {
     display: flex;
+<<<<<<< HEAD
+=======
 }
-
+.style:hover{
+    transition-duration: 0.5s;
+ transform:scale(1.1,1.1) ;
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
+}
 .space {
 
     height: 40px;
     margin: 5px;
     border: none;
+    padding:8px;
+    border-radius: 5px;
     box-shadow: 1px 2px 5px lightgrey;
 }
 
 .search-icon {
-    margin-top: 30px;
+    margin-top:5px;
+    font-size:20px;
     color: grey;
 }
-
+.symbol-size{
+margin-top: 2px;
+margin-right: 2px;
+}
 .search-countryByLetter {
     display: flex;
     align-items: center;
@@ -198,12 +234,16 @@ p {
     color: white;
 }
 
-.s {
+.symbol {
     display: flex;
     justify-content: center;
 }
 
+<<<<<<< HEAD
 .dark1 {
+=======
+.dark-mode {
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
     color: white;
 }
 
@@ -237,4 +277,8 @@ p {
     margin-top: 30px;
     display: flex;
     justify-content: space-around;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d

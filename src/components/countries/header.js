@@ -1,6 +1,6 @@
 import React from "react"
 import "./countries.css"
-import { WiNightClear } from "react-icons/wi";
+import { FiMoon } from "react-icons/fi";
 class Header extends React.Component {
      changeTheme = () => {
           this.props.change()
@@ -11,10 +11,11 @@ class Header extends React.Component {
           <div>
           <h3>Where in the world ?</h3>
           </div>
-          <div className="mode">
-          <h1 className="arrow size"><WiNightClear/></h1>
-          <div className={this.props.name?"dark1 s":"light s"} onClick={this.changeTheme}>{this.props.name?"Dark Mode":"Light Mode"}</div>
+          <div className="header-mode">
+          <h1 className="symbol-size"><FiMoon/></h1>
+          <button className={this.props.name?"dark-mode moon-symbol":"light moon-symbol"} onClick={this.changeTheme}>{this.props.name?"Dark Mode":"Light Mode"}</button>
                </div></div>)
      }
 }
 export { Header }
+//WiNightClear

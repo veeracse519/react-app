@@ -32,8 +32,37 @@ class Home extends React.Component {
             <li>
               <Link to="/countryDashboardApp">Country Dashboard</Link>
             </li>
+<<<<<<< HEAD
                         <li>
               <Link to="/game">Game</Link>
+=======
+            <li>
+              <Link to="/tailwind-css">Tailwind-CSS</Link>
+            </li>
+            <li>
+              <Link to="/game">Emoji Game</Link>
+            </li>
+            <li>
+              <Link to="/counter-app">Counter App</Link>
+            </li>
+            <li>
+              <Link to="/mobx-project">MobX Project</Link>
+            </li>
+            <li>
+              <Link to="/todo-app">Todo List</Link>
+            </li>
+            <li>
+              <Link to="/mobx-todo-app">Mobx Todo List</Link>
+            </li>
+            <li>
+              <Link to="/mobx-store-todo-app">Mobx Store Todo List</Link>
+            </li>
+            <li>
+              <Link to="/mobx-event-app">EventApp</Link>
+            </li>
+            <li>
+              <Link to="/provider-example-app">Provider Example</Link>
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
             </li>
           </ul>
         </nav>
@@ -42,3 +71,5 @@ class Home extends React.Component {
   }
 }
 export { Home }
+///mobx-event-app
+///provider-example-app

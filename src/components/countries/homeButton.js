@@ -22,8 +22,8 @@ class HomeButton extends React.Component {
           <div>
           <div className={this.props.click?"dark back-button":"light back-button"} onClick={this.back} >
           
-<h4 className="arrow1"><IoIosHome/></h4>
-<h4>{this.props.element}</h4>
+<h4 className="arrow"><IoIosHome/></h4>
+<button>{this.props.element}</button>
 </div></div>
 </Router>)
      }

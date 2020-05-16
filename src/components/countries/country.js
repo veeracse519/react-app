@@ -4,12 +4,15 @@ import { withRouter } from "react-router-dom"
 import HomeButton from "./homeButton.js"
 /*global fetch*/
 
-
 class Country extends React.Component {
           update = data => {
                const { history } = this.props;
                const { countries } = this.props.location.state;
+<<<<<<< HEAD
                history.push(`country-dashboard-app/details/:${data.alpha3Code}`, { data, countries });
+=======
+               history.push(`:${data.alpha3Code}`, { data, countries });
+>>>>>>> 337af5a5aa80ecd2b2f6c40236bd53c1e953495d
           }
           render() {
                     const { data, countries } = this.props.history.location.state;

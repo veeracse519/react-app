@@ -24,7 +24,7 @@ class Back extends React.Component {
           <div className={this.props.click?"dark back-button":"light back-button"} onClick={this.back}>
           
 <h1 className="arrow"><TiArrowLeft/></h1>
-<h4>{this.props.element}</h4>
+<button>{this.props.element}</button>
 </div></div>
 </Router>)
      }

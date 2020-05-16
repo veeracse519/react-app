@@ -1,8 +1,9 @@
 import React from "react"
-import TodoModel from"../../../stores/Models/TodoModel.js"
+import {observer, inject} from "mobx-react"
+import TodoModel from"../../../stores/Models/TodoModel"
 import "../Todo.css"
-import {observer} from "mobx-react"
-import todoStore from"../../../stores/TodoStore/TodoStore.js"
+
+@inject('todoStore')
 @observer
 class Todo extends React.Component{
     onCompleteTodo=()=>{
@@ -10,9 +11,12 @@ class Todo extends React.Component{
         todo.onCompleteTodo()
 
     }
+    getTodoStore=()=>{
+        return this.props.todoStore
+    }
      onRemoveTodo=()=>{
          const{todo}=this.props
-         todoStore.onRemoveTodo(todo.id)
+         this.getTodoStore().onRemoveTodo(todo.id)
      }
     onUpdateTodoTitle=(e)=>{
 const{todo}=this.props
@@ -21,10 +25,11 @@ todo.onUpdateTodoTitle(e.target.value)
     }
     render(){
         const{todo}=this.props
-        return(<div className="m-0  flex items-center justify-around ">
-           <input type="checkbox" onClick={this.onCompleteTodo} defaultChecked={todo.isCompleted}></input>
-       <input style={{textDecoration:todo.isCompleted?"line-through":"none"}} type="text" disabled={todo.isCompleted} defaultValue={todo.title} onChange={this.onUpdateTodoTitle}></input>
-<button onClick={this.onRemoveTodo}>X</button>
+   
+        return(<div className="w-6/12 bg-white h-10 flex items-center">
+           <input className="m-3 w-4 h-4" type="checkbox" onClick={this.onCompleteTodo} defaultChecked={todo.isCompleted}></input>
+       <input className="h-10 w-full text-center" style={{textDecoration:todo.isCompleted?"line-through":"none"}} type="text" disabled={todo.isCompleted} defaultValue={todo.title} onChange={this.onUpdateTodoTitle}></input>
+<button className="w-12 bg-white h-10 text-red-600" onClick={this.onRemoveTodo}>X</button>
 
         </div>)
     }

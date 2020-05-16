@@ -1,30 +1,8 @@
-/*
--state variables
-emojis(array[{id,isClicked,name,image}])
-score
-topscore
-gameState("Playing","Won","Loss")
-isWon(boolean)
-selectTheme
--methods
-onEmojiClick()
-shuffleEmojis()
-incrementScore()
-onPlayAgain()
-resetGame()
-setTopScore()
-onChangeTheme()
-*/
 import React from "react"
-/*import EmojiCard from "./EmojiCard.js"
-import WinorLoss from "./WinorLose.js"
-import NavBar from "./Navbar.js"
-import HowToPlay from "./HowToPlay.js"*/
 import EmojiCard from "../EmojiCards"
 import WinorLoss from "../GameStatus"
 import NavBar from "../HeaderFiles"
 import HowToPlay from "../Instructions"
-import {HeaderComponent} from "./styles.js"
 class EmojiGame extends React.Component {
      state = {
           emojis: [{ id: 1, isClicked: false, name: "Exploding Head", image: "https://tap.ibhubs.in/react/assignments/assignment-5/preview/images/memoji-1.png" },
@@ -62,10 +40,7 @@ class EmojiGame extends React.Component {
                     this.incrementScore()
                }
           }
-          let emojisList = this.shuffleEmojis(this.state.emojis, index)
-
-          //this.setState({ emojis: emojisList })
-
+          /*let emojisList =*/ this.shuffleEmojis(this.state.emojis, index)
      }
      shuffleEmojis = (emojis, index) => {
           let i, t, j;
@@ -80,14 +55,11 @@ class EmojiGame extends React.Component {
           return emojis
      }
      incrementScore = () => {
-          this.state.score += 1
-         // this.state.status=true
-          this.setState({ status: true })
+          let score=this.state.score
+          score += 1
+          this.setState({ status: true,score:score })
      }
      setTopScore = () => {
-          // if (this.state.score > this.state.topscore) {
-          //      this.state.topscore = this.state.score
-          // }
           this.setState({ status: false, gameState: "Lost" })
      }
      onChangeTheme = () => {
@@ -95,32 +67,27 @@ class EmojiGame extends React.Component {
      }
      onPlayAgain = () => {
           let emojisList = this.state.emojis
-          if (this.state.score > this.state.topscore) {
-               this.state.topscore = this.state.score
+          let presentScore=this.state.score
+          let higestScore=this.state.topscore
+          if (presentScore> higestScore) {
+               this.setState({topscore:presentScore})
           }
           emojisList.map(item =>
                item.isClicked = false
           )
           this.setState({ score: 0, emojis: emojisList, status: true })
      }
-     /*resetGame = () => {
-         
-          let emojisList = this.state.emojis
-          emojisList.map(item =>
-               item.isClicked = false
-          )
-          this.setState({ score: 0, emojis: emojisList, status: true})
-     }*/
      render() {
+          const status=this.state.selectedTheme
           return (<div >
-          <div className={this.state.selectedTheme?"bg-gray-800 w-full text-white":"bg-white"}>
+          <div className={status?"bg-gray-800 w-full text-white":"bg-white"}>
           <NavBar score={this.state.score} topscore={this.state.topscore} selectedTheme={this.state.selectedTheme} onChange={this.onChangeTheme} resetGame={this.onPlayAgain}/>
    </div>
        
-          <div className={this.state.selectedTheme?"bg-gray-900 text-white":"bg-indigo-100"}>
+          <div className={status?"bg-gray-900 text-white":"bg-indigo-100"}>
           {this.state.status?<EmojiCard emojis={this.state.emojis} selectedTheme={this.state.selectedTheme} onEmojiClick={this.onEmojiClick}/>:<WinorLoss selectedTheme={this.state.selectedTheme} playAgain={this.onPlayAgain} score={this.state.score} gameState={this.state.gameState}/>}
           </div>
-          <div className={this.state.selectedTheme?"bg-gray-700 text-white":"bg-white"}>
+          <div className={status?"bg-gray-700 text-white":"bg-white"}>
           <HowToPlay/>
           </div>
           </div>)

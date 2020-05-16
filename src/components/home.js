@@ -1,27 +1,54 @@
-import React from "react"
+import React from "react";
+//import authStore from "../stores/authStore/index.js"
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-}
-from "react-router-dom";
-
+  //BrowserRouter as Router,
+  //Switch,
+  //Route,
+  Link,
+  Redirect,
+  withRouter,
+} from "react-router-dom";
+import { observable } from "mobx";
+import { observer } from "mobx-react";
+import { clearUserSession, getAccessToken } from "../utils/StorageUtils.js";
+@observer
 class Home extends React.Component {
-  render() {
+  // alert(TailwindCss.token)
+  @observable tocken;
+  constructor() {
+    super();
+    this.tocken = getAccessToken();
+  }
+  gotoGridScreenIfLogIn = () => {
     return (
-
+      <Redirect
+        to={{
+          pathname: "/",
+        }}
+      />
+    );
+  };
+  signOut = () => {
+    clearUserSession();
+    this.props.history.replace("/");
+  };
+  render() {
+    //console.log(this.token)
+    // if(!getAccessToken()){
+    //   return this.gotoGridScreenIfLogIn()
+    // }
+    return (
       <div>
         <nav>
           <ul>
-          
+            <li>
+              <button onClick={this.signOut}>SignOut</button>
+            </li>
             <li>
               <Link to="/">Home</Link>
-            
             </li>
             <li>
               <Link to="/about">About</Link>
-            
             </li>
             <li>
               <Link to="/users">Users</Link>
@@ -57,14 +84,17 @@ class Home extends React.Component {
               <Link to="/mobx-event-app">EventApp</Link>
             </li>
             <li>
-              <Link to="/provider-example-app">Provider Example</Link>
+              <Link to="/user-page">UserPage</Link>
+            </li>
+            <li>
+              <Link to="/e-cart"> Ecommerace-cart</Link>
             </li>
           </ul>
         </nav>
-        </div>
-    )
+      </div>
+    );
   }
 }
-export { Home }
+export default withRouter(Home);
 ///mobx-event-app
 ///provider-example-app

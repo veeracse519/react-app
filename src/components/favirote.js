@@ -1,5 +1,5 @@
 import React from "react"
-let c = 0
+// let c = 0
 class Favirote extends React.Component {
      state = {
           selectedDessert: '',
@@ -13,7 +13,7 @@ class Favirote extends React.Component {
      }
      handleSubmit = (e) => {
           e.preventDefault()
-          if (this.state.selectedDessert != "") {
+          if (this.state.selectedDessert !== "") {
                this.setState({ favoriteDessert: this.state.selectedDessert, buttonClick: true })
           }
           else {

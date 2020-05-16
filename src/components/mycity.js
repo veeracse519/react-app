@@ -1,5 +1,5 @@
 import React from "react"
-let c = 0
+// let c = 0
 class MyCity extends React.Component {
      state = {
           selectedState: '',
@@ -14,7 +14,7 @@ class MyCity extends React.Component {
      }
      handleSubmit = (e) => {
           e.preventDefault()
-          if (this.state.selectedState != "Select State" && this.state.selectedState != "") {
+          if (this.state.selectedState !== "Select State" && this.state.selectedState !=="") {
                this.setState({ submittedState: this.state.selectedState, buttonClick: true })
           }
           else {
@@ -22,7 +22,7 @@ class MyCity extends React.Component {
           }
      }
      displayMessage = () => {
-          if (this.state.submittedState != "Select State")
+          if (this.state.submittedState !=="Select State")
                return `I am From ${this.state.submittedState}`
      }
 

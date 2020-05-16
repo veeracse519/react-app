@@ -1,4 +1,4 @@
-import React from"react"
+// import React from"react"
 import styled from"@emotion/styled"
 import tw from "tailwind.macro"
 const DivWrap=styled.div`${tw`m-5 h-64 p-1 rounded-sm shadow-lg  flex flex-col items-center  justify-around w-64 text-gray-400`}background-color:${props=>props.id};`;

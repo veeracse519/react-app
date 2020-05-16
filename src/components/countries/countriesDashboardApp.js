@@ -1,7 +1,7 @@
 import React from 'react'
 import './countries.css'
 import CountryCard from './countryCard.js'
-import { Header } from "./header.js"
+//import { Header } from "./header.js"
 import { FaRedoAlt } from "react-icons/fa";
 import { CountriesFilterBar } from "./countriesFilterBar.js"
 class CountriesDashboardApp extends React.Component {
@@ -53,7 +53,7 @@ class CountriesDashboardApp extends React.Component {
           if (text === "" && region === "ALL") {
                this.setState({ allCountries: this.state.allDupCountries })
           }
-          else if (text != "" && region === "ALL") {
+          else if (text !=="" && region === "ALL") {
 
                let items = this.state.allDupCountries.filter((item) =>
                     item.name.toLowerCase().search(text.toLowerCase()) !== -1);
@@ -64,7 +64,7 @@ class CountriesDashboardApp extends React.Component {
                     this.setState({ allCountries: "" })
                }
           }
-          else if (text === "" && region != "ALL") {
+          else if (text === "" && region !=="ALL") {
                let items1 = this.state.allDupCountries.filter((item) =>{
                     return item.region===region
                })
@@ -75,7 +75,7 @@ class CountriesDashboardApp extends React.Component {
                     this.setState({ allCountries: "" })
                }
           }
-          else if (text != "" && region != "ALL") {
+          else if (text !=="" && region !=="ALL") {
                let items = this.state.allDupCountries.filter((item) =>
                     item.name.toLowerCase().search(text.toLowerCase()) !== -1);
                let items1 = items.filter((item) =>{

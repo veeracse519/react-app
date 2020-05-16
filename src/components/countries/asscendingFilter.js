@@ -1,5 +1,5 @@
 import React from "react"
-import { TiZoomOutline } from "react-icons/ti";
+//import { TiZoomOutline } from "react-icons/ti";
 class AsscendingFilter extends React.Component {
      enter = (event) => {
           this.props.filterCountryInAlphabeticalOrder(event.target.value)

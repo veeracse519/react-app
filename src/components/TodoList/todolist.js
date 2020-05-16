@@ -12,7 +12,14 @@ class TodoList extends React.Component {
                // activeTodos: [],
                allTasks: []
           }
+          
      }
+     componentDidMount(){
+          alert(1)
+          const data=fetch("https://todo-list-2.getsandbox.com/todos")
+          .then(response=>response.json())
+          .then(todo=>this.setState({todoListContent:todo,allTasks:todo}))
+      }
      checking = (id) => {
 
           let number;

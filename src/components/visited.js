@@ -1,5 +1,5 @@
 import React from "react"
-let c = 0
+// let c = 0
 class Visited extends React.Component {
      state = {
           visitedCities: [],

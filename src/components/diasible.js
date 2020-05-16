@@ -1,5 +1,5 @@
 import React from "react"
-let c = 0
+// let c = 0
 class Disable extends React.Component {
      state = {
           isDisableButtonChecked: false,

@@ -1,12 +1,12 @@
 import React from "react"
 import './countries.css'
-import {
-     BrowserRouter as Router,
-     Switch,
-     Route,
-     Link
-}
-from "react-router-dom";
+// import {
+//      BrowserRouter as Router,
+//      Switch,
+//      Route,
+//      Link
+// }
+// from "react-router-dom";
 import { withRouter } from "react-router-dom"
 class CountryCard extends React.Component {
 
@@ -23,7 +23,7 @@ class CountryCard extends React.Component {
                <div className=" style" onClick={this.country}>
           <div className={this.props.click?"dark country-card-dark-mode":"light country-card-light-mode"} onClick={this.showCountry}>
           <div className="flag">
-          <img className="country-flag" src={this.props.data.flag} />
+          <img className="country-flag" src={this.props.data.flag} alt="Country Flag"/>
           </div>
           <div className="country-details">
           <p><b>{this.props.data.name}</b></p>

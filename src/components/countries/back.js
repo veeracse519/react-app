@@ -1,17 +1,17 @@
 import React from "react"
-import image from '../back-icon.svg'
+//import image from '../back-icon.svg'
 import { TiArrowLeft } from 'react-icons/ti';
 import { withRouter } from "react-router";
 import {
-     BrowserRouter as Router,
-     Switch,
-     Route,
-     Link
+     BrowserRouter as Router
+  //   Switch,
+   //  Route,
+     //Link
 }
 from "react-router-dom";
 class Back extends React.Component {
      back = () => {
-          const { history, state } = this.props
+          const { history } = this.props
           //history.go(-1)
           // console.log(this.props)
           history.goBack();

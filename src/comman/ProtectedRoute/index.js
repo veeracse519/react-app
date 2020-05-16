@@ -12,14 +12,7 @@ import ProductsPageRoute from "../../e-Commerace/routes/ProductsPageRoute/Produc
 export const ProtectedRoute=(props)=>{
     let path=PRODUCTS_PATH
     if(getAccessToken()){
-        if(props.location.pathname=="/"){
-            return <Redirect
-             to={{pathname:"/products-page"}}
-             />
-        }
-        else{
-        return <Route render={()=><ProductsPageRoute/>}/>
-        }
+        return <Route path={path} component={ProductsPageRoute}/>
     }
     return <Redirect
     to={{pathname:"/sign-in"}}

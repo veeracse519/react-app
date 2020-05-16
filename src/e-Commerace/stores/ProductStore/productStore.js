@@ -38,7 +38,7 @@ return bindPromiseWithOnSuccess(userProductPromise)
 setProductListResponse(productsList){
 
 productsList.map(eachProduct=>{
-    let productModel=new ProductModel(eachProduct)
+    let productModel=new ProductModel(eachProduct)m
     this.productList.push(productModel)
 })
 }

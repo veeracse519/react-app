@@ -56,13 +56,7 @@ import stores from "./stores/index.js";
     <Switch>
       {EcommeraceAuthentication}
       {ProductsRoute}
-    {/* <Route path="/sign-in">
-      <SignInRoute/>
-    </Route> */}
     <ProtectedRoute/>
-    {/* <EcommeraceAuthentication/> */}
-    
-  
  
   {/*<Route path="/about">
   
